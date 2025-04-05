@@ -1,5 +1,6 @@
 import pkg from 'pg';
 import dotenv from 'dotenv';
+import process from 'process';
 
 const { Pool } = pkg;
 dotenv.config();
