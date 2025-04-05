@@ -2,14 +2,19 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import chatRoutes from './routes/chat.js';
+import generateTextRoutes from './routes/generateText.js';
+import rateLimit from 'express-rate-limit';
 
 dotenv.config();
 const app = express();
 
+
+
 app.use(cors());
 app.use(express.json());
 
-app.get('/api', chatRoutes);
+app.use('/api/chat', chatRoutes);
+app.use('/api/generate-stream', generateTextRoutes);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
