@@ -17,6 +17,7 @@ const limiter = rateLimit({
 });
 
 router.use(limiter);
+
 router.get('/generate-stream', async (req, res) => {
     try {
         const { conversation_id, message } = req.query;
@@ -65,5 +66,6 @@ router.get('/generate-stream', async (req, res) => {
         res.end();
     }
 })
+
 
 export default router;
